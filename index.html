@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven and a Half - Inici</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="benvinguda">
+        <h2>Benvingut al Joc "Set i Mig"!</h2>
+        <label for="nom">Introdueix el teu nom:</label>
+        <input type="text" id="nom" placeholder="Nom d'usuari">
+        <button id="entrar-joc">Entrar al joc</button>
+    </div>
+
+    <script>
+        document.getElementById("entrar-joc").addEventListener("click", () => {
+            const nomUsuari = document.getElementById("nom").value;
+            if (nomUsuari) {
+                localStorage.setItem("nomUsuari", nomUsuari);
+                window.location.href = "joc.html";
+            } 
+            else {
+                alert("Si us plau, introdueix el teu nom.");
+            }
+        });
+    </script>
+</body>
+</html>
