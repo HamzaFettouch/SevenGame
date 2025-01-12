@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven and a Half - Inici</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="benvinguda">
+        <h2>Welcome to Set i Mig</h2>
+        <label for="nom">Introduce your name:</label>
+        <input class="input" type="text" id="nom" placeholder="Nom d'usuari">
+        <label for="diners">Enter the money you want to play with:</label>
+        <input class="input" type="number" id="diners" placeholder="Amount of money" min="1">
+        <div class="buttons" id="entrar-joc">
+        <button class="btn"><span></span><p data-start="good luck!" data-text="start!" data-title="new game"></p></button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById("entrar-joc").addEventListener("click", () => {
+        const nomUsuari = document.getElementById("nom").value;
+        const dinersTotals = document.getElementById("diners").value;
+
+        if (!nomUsuari) {
+            alert("Please, enter your name");
+            return;
+        }
+
+        if (!dinersTotals || dinersTotals <= 0) {
+            alert("Please, enter a valid quantity");
+            return;
+        }
+
+        localStorage.setItem("nomUsuari", nomUsuari);
+        localStorage.setItem("dinersJugador", dinersTotals); 
+
+        window.location.href = "joc.html";
+    });
+
+    </script>
+</body>
+</html>

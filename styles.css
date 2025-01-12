@@ -1,0 +1,512 @@
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body, html {
+  height: 100%; 
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #f0f4f8;
+  color: #53a0b0;
+  background-image: url("fondo.jpeg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+}
+#benvinguda {
+  background-color: #f0f0f0;
+  padding: 20px;
+  border-radius: 10px;  
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  text-align: center;  
+  display: flex;       
+  flex-direction: column; 
+  justify-content: center; 
+  align-items: center; 
+  position: absolute;  
+  top: 50%;           
+  left: 50%;          
+  transform: translate(-50%, -50%); 
+  width: 80%;          
+  max-width: 400px;    
+  gap:20px;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;  
+  gap: 20px; 
+  width: 100%;
+  max-width: 800px;
+  padding: 20px;
+  height: 100%;  
+}
+
+.banca {
+  display: flex;
+  flex-direction: column; 
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.banca img:first-child {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border: 2px solid #2E8B57;
+  margin-bottom: 10px;
+}
+
+.banca img:nth-child(2) { 
+  width: 100px; 
+  height: 50;
+  object-fit: cover; 
+}
+
+h1 {
+  color: #44d8a4;
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+input[type="number"] {
+  width: 80%;
+  padding: 8px;
+  margin-bottom: 15px;
+  border: 1px solid #cccccc;
+  border-radius: 5px;
+}
+
+.carta {
+  width: 80px;  
+  height: auto;
+  margin: 5px;
+}
+
+
+.carta img {
+  max-width: 100%;
+  height: auto;
+}
+
+
+.carta:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s;
+}
+
+
+#cartes-banca{
+      color: white;
+      visibility: hidden; 
+      display: block;
+      text-align: center;
+      min-height: 150px; 
+      overflow: hidden; 
+      margin-bottom: 20px; 
+      padding: 10px; 
+
+}
+#cartes-banca[hidden] {
+  visibility: hidden; 
+}
+#cartes-banca, #cartes-jugador {
+  display: block;
+  text-align: center;
+}
+
+#cartes-jugador {
+  color: white;
+  margin-top: 40px;
+}
+
+#seccio-jugador {
+  display: flex;  
+  flex-direction: row;  
+  justify-content: center;  
+  align-items: center;  
+  gap: 20px;  
+  margin-bottom: 20px;  
+}
+.perfil_info{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+}
+.contenidor_perfil {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 5px solid #2E8B57;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative; 
+  z-index: 2;
+}
+
+#img-jugador {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.contenidor_info {
+  background-color: #2E8B57;
+  text-align: left; 
+  margin: 0; 
+  position: relative;
+  z-index: 1;
+  padding-left: 30px;  
+  padding-top: 10px;  
+  padding-bottom: 10px;
+  padding-right: 10px;
+  color: white;
+  margin-left: -20px;
+  border-radius: 10px;
+}
+#info-usuari {
+  font-size: 18px;
+  margin-bottom: 15px;
+  font-weight: bold;
+}
+#seccio-aposta {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #f0f0f0;
+  width: 300px; 
+  height: auto; 
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+  align-items: center; 
+  text-align: center;
+  z-index: 10;
+  gap: 10px; 
+}
+
+#seccio-aposta h1 {
+  margin-bottom: 10px; 
+  font-size: 24px; 
+}
+
+#seccio-aposta label {
+  margin-bottom: 5px; 
+  font-size: 14px; 
+}
+
+#seccio-aposta input {
+  margin-bottom: 0px; 
+}
+
+
+#reiniciar-partida {
+  display: none;
+  margin-top: 15px;
+  padding: 12px;
+  font-weight: bold;
+  font-size: 16px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+#reiniciar-partida:hover {
+  background-color: #c82333;
+}
+
+
+#win-container, 
+#draw-container, 
+#lose-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%; 
+  height: 85%;
+  padding: 20px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); 
+  border-radius: 10px; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  z-index: 9999; 
+}
+
+#win-container img, 
+#draw-container img, 
+#lose-container img {
+  max-width: 100%; 
+  max-height: 100%; 
+  object-fit: contain; 
+}
+
+
+.buttons {
+  display: flex;
+  justify-content: space-around;
+  top: 20px;
+  left: 20px;
+}
+
+.buttons button {
+  width: 150px;
+  height: 50px;
+  background-color: white;
+  margin: 20px;
+  color: #568fa6;
+  position: relative;
+  overflow: hidden;
+  font-size: 14px;
+  letter-spacing: 1px;
+  font-weight: 500;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  border: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+}
+
+.buttons button:before, .buttons button:after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background-color: #44d8a4;
+  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.buttons button:before {
+  right: 0;
+  top: 0;
+  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.buttons button:after {
+  left: 0;
+  bottom: 0;
+}
+
+.buttons button span {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  margin: 0;
+  padding: 0;
+  z-index: 1;
+}
+
+.buttons button span:before, .buttons button span:after {
+  content: "";
+  position: absolute;
+  width: 2px;
+  height: 0;
+  background-color: #44d8a4;
+  transition: all 0.3s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.buttons button span:before {
+  right: 0;
+  top: 0;
+  transition: all 0.5s cubic-bezier(0.35, 0.1, 0.25, 1);
+}
+
+.buttons button span:after {
+  left: 0;
+  bottom: 0;
+}
+
+.buttons button p {
+  padding: 0;
+  margin: 0;
+  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.buttons button p:before, .buttons button p:after {
+  position: absolute;
+  width: 100%;
+  transition: all 0.4s cubic-bezier(0.35, 0.1, 0.25, 1);
+  z-index: 1;
+  left: 0;
+}
+
+.buttons button p:before {
+  content: attr(data-title);
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons button p:after {
+  content: attr(data-text);
+  top: 150%;
+  color: #44d8a4;
+}
+
+.buttons button:hover:before, .buttons button:hover:after {
+  width: 100%;
+}
+
+.buttons button:hover span {
+  z-index: 1;
+}
+
+.buttons button:hover span:before, .buttons button:hover span:after {
+  height: 100%;
+}
+
+.buttons button:hover p:before {
+  top: -50%;
+  transform: rotate(5deg);
+}
+
+.buttons button:hover p:after {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.buttons button.start {
+  background-color: #44d8a4;
+  box-shadow: 0px 5px 10px -10px rgba(0, 0, 0, 0.2);
+  transition: all 0.2s ease;
+}
+
+.buttons button.start p:before {
+  top: -10%;
+  transform: rotate(5deg);
+}
+
+.buttons button.start p:after {
+  color: white;
+  transition: all 0s ease;
+  content: attr(data-start);
+  top: 50%;
+  transform: translateY(-50%);
+  animation: start 0.3s ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes start {
+  from {
+    top: -50%;
+  }
+}
+
+.buttons button.start:hover:before, .buttons button.start:hover:after {
+  display: none;
+}
+
+.buttons button.start:hover span {
+  display: none;
+}
+
+.buttons button:active {
+  outline: none;
+  border: none;
+}
+
+.buttons button:focus {
+  outline: 0;
+}
+
+.input {
+  border: 2px solid transparent;
+  width: 15em;
+  height: 2.5em;
+  padding-left: 0.8em;
+  outline: none;
+  overflow: hidden;
+  background-color: white;
+  border-radius: 10px;
+  transition: all 0.5s;
+  
+}
+
+.input:hover,
+.input:focus {
+  border: 2px solid #44d8a4;
+  box-shadow: 0px 0px 0px 7px rgb(74, 157, 236, 20%);
+  background-color: white;
+}
+
+.seccio-botons {
+  display: flex;
+  flex-direction: column; 
+  align-items: center; 
+  gap: 10px; 
+  margin-top: 20px; 
+}
+
+
+.custom-button {
+  display: flex;
+  align-items: center; 
+  justify-content: center;
+  background-color: #2E8B57;
+  color: #FFFFFF;
+  width: 200px; 
+  height: 60px; 
+  border: none; 
+  border-radius: 15px; 
+  padding: 0 15px; 
+  transition: all 0.3s ease;
+  font-size: 18px; 
+  font-weight: bold; 
+  cursor: pointer;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); 
+  position: relative; 
+}
+
+.custom-button:hover {
+  background-color: #3CB371; 
+  color: #FFFFFF; 
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.3); 
+}
+
+
+.custom-button .icon {
+  width: 30px; 
+  height: 25px;
+  margin-right: 10px; 
+  object-fit: contain; 
+  position: absolute;
+  left: 15px; 
+}
+
+
+.custom-button .text {
+  flex-grow: 1; 
+  text-align: center; 
+  display: flex;
+  align-items: center; 
+  padding-left: 45px; 
+}

@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html lang="ca">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Seven and a Half</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="game-container">
+        <div class="banca">
+            <img src="kevin.jpg" alt="Banca">
+            <img src="bank.png" alt="Banca">
+        </div>
+
+        <div id="seccio-aposta">
+            <h1>Seven and a Half</h1>
+            <p id="resultat-partida" style="display: none"></p>
+            <label for="quantitat-aposta">Make your bet:</label>
+            <input class="input" type="number" id="quantitat-aposta" min="1" max="100" placeholder="Introduce your bet">
+            <div class="buttons">
+                <button id="inicia-partida" class="btn"><span></span><p data-start="good luck!" data-text="good luck!" data-title="Bet"></p></button>
+            </div>
+        </div>
+
+        <div id="cartes-banca" class="cartes">
+            <h3>Bank cards:</h3>
+            <p id="llista-cartes-banca"></p>
+            <p id="puntuacio-banca">Score: 0</p>
+        </div>
+
+        <div id="cartes-jugador" class="cartes">
+            <h3>Player cards:</h3>
+            <p id="llista-cartes-jugador"></p>
+            <p id="puntuacio-jugador">Score: 0</p>
+        </div>
+        
+        <div id="seccio-jugador">
+            <div class="perfil_info">
+                <div class="contenidor_perfil">
+                    <img src="anonim.jpg" alt="Jugador" id="img-jugador">
+                </div>
+                <div class="contenidor_info">
+                    <p id="info-usuari">
+                        <span>Player: <span id="nom-usuari"></span></span><br>
+                        <span>Money: <span id="diners-totals"></span> €</span>
+                    </p>
+                </div>
+            </div>
+
+            <div class="seccio-botons">
+                <button id="agafar-carta" class="custom-button">
+                  <img src="carta.png" alt="Carta" class="icon">
+                  <div class="text">Ask for card</div>
+                </button>
+                <button id="plantarse" class="custom-button">
+                  <img src="plantarse.png" alt="Carta" class="icon">
+                  <div class="text">Stand</div>
+                </button>
+            </div>
+              
+        </div>
+
+        <div id="win-container" style="display: none;">
+            <img src="win.png" alt="YOU'VE WON">
+        </div>
+        
+        <div id="draw-container" style="display: none;">
+            <img src="tie.png" alt="DRAW">
+        </div>
+        
+        <div id="lose-container" style="display: none;">
+            <img src="lost.png" alt="YOU'VE LOST">
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
